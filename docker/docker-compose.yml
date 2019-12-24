@@ -6,13 +6,13 @@ volumes:
 services:
     postgres:
         container_name: postgres
-        environment: :
+        environment:
             PGDATA: "/var/lib/postgresql/data/pgdata"
             POSTGRES_DB: postgres
             POSTGRES_PASSWORD: password
             POSTGRES_USER: postgres
         image: postgres:10.11-alpine
         ports:
-            - "5432:5432"
+            - "5434:5432"
         volumes:
             - "dbdata:/var/lib/postgresql/data/pgdata"
