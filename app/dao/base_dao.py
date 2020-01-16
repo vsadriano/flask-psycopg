@@ -14,16 +14,14 @@ class BaseDao:
         db_user = config.db_user
         db_password = config.db_password
         db_port = config.db_port
+        logging.basicConfig(format='''%(asctime)s %(levelname)s: %(message)s''',
+                            level=logging.INFO)
         self.db_schema = config.db_schema
-        
         self.str_conn = f"""host={db_host} 
             port={db_port}
             dbname={db_dbname}
             user={db_user}
             password={db_password}"""
-
-        logging.basicConfig(format='''%(asctime)s %(levelname)s: %(message)s''',
-            level=logging.INFO)
 
         try:
             self.conn = psycopg2.connect(self.str_conn)
